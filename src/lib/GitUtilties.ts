@@ -28,7 +28,7 @@ export class GitUtilties {
         cloneIntoDir = cloneIntoDir ?? (name.split('/')
             .pop() || '');
 
-        const gitCloneUrl = `https://github.com/${name}.git`;
+        const gitCloneUrl = `git@github.com:${name}.git`;
 
         if (!existsSync(parentPath + '/' + cloneIntoDir)) {
             if (GitUtilties.displayStatusMessages) {
