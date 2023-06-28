@@ -1,41 +1,33 @@
 config:
-
   paths:
-    templates: '{{__dirname}}/temp/spatie/templates'
-    packages: '{{__dirname}}/temp/spatie/packages'
+    templates: '{{__dirname}}/tmp/tenantcloud/templates'
+    packages: '{{__dirname}}/tmp/tenantcloud/packages'
 
   fixers:
     # list of disabled fixer names; items can be either a name of a fixer or a wildcard match.
     disabled:
-      - rewrite-file
+      - merge-files
+      - psalm
 
   git:
     branches:
-      default: main
+      default: master
       format: 'package-sync-{{hash}}'
       createOn: [fix]
 
   issues:
     ignored:
-      # don't install these dependencies:
-      missing_pkg:
-        - spatie/ray
-        - friendsofphp/php-cs-fixer
+      missing_pkg: []
       # don't copy these composer scripts:
-      pkg_script:
-        - format
+      pkg_script: []
       # don't list 'extra_file' issues with these filenames:
-      extra_file:
-        - .scrutinizer.yml
+      extra_file: []
 
   packages:
-    vendor: spatie
-    email: freek@spatie.be
-    homepage: https://spatie.be/open-source/support-us
-    
+    vendor: tenantcloud
+
   templates:
-    # github organization name
-    vendor: spatie
+    vendor: tenantcloud
     # skeleton repositories, must be named *-php and *-laravel.
     # the laravel skeleton is used automatically if the package being analyzed or fixed
     # starts with 'laravel-', otherwise the php skeleton is used.
@@ -53,39 +45,21 @@ config:
   # out of sync due to the size difference.
   scoreRequirements:
     defaults:
-      similar: 0.75
-      size: 10
+      similar: 1
+      size: 0
     files:
-      - name: CONTRIBUTING.md
+      - name: SAD.md
         scores:
           similar: 0.95
           size: 5
-      - name: .editorconfig
-        scores:
-          similar: 1
-          size: 5
-      - name: .gitattributes
-        scores:
-          similar: 0.8
-          size: 8
-      - name: .gitignore
-        scores:
-          similar: 0.8
-          size: 8
-      - name: .php_cs.dist
-        scores:
-          similar: 1
-          size: 5
 
   # list of filenames that should not be compared during analysis
-  skipComparisons:
-    - composer.json
-    - README.md
+  skipComparisons: []
 
   ignoreNames:
     - .git/*
     - .idea/*
-    - .vscode/*    
+    - .vscode/*
     - '*/.gitkeep'
     - README.md
     - CHANGELOG.md
@@ -93,6 +67,7 @@ config:
     - (art)
     - build/**/*
     - (build)
+    - composer.json
     - composer.lock
     - config/**/*
     - (config)
@@ -104,6 +79,7 @@ config:
     - (docs)
     - node_modules/
     - package-lock.json
+    - phpstan*.neon
     - resources/**/*
     - (resources)
     - src/**/*
