@@ -57,6 +57,7 @@ config:
   skipComparisons: []
 
   ignoreNames:
+    - _ide_custom_helpers.php
     - .git/*
     - .idea/*
     - .vscode/*
