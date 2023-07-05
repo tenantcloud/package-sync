@@ -80,6 +80,9 @@ config:
     - (database)
     - docs/**/*
     - (docs)
+    - Dockerfile
+    - docker-compose.yml
+    - docker-compose.*.yml
     - node_modules/
     - package-lock.json
     - phpstan*.neon
