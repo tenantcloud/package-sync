@@ -17,7 +17,7 @@ export class ComposerScriptsComparison extends Comparison {
         const repositoryComposer = Composer.createFromPath(this.repo.path);
 
         const missingScripts = skeletonComposer.scripts()
-            .filter(script => !repositoryComposer.hasScript(script.name));
+            .filter(script => !repositoryComposer.hasMatchingScript(script));
 
         this.comparisonPassed = missingScripts.length === 0;
 

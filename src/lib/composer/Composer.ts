@@ -170,6 +170,11 @@ export class Composer {
             .includes(name);
     }
 
+    public hasMatchingScript(script: ComposerScript): boolean {
+        return this.scripts()
+            .some(existingScript => script.name === existingScript.name && script.command === existingScript.command);
+    }
+
     public addScript(script: ComposerScript) {
         this.ensureSectionExists('scripts');
         this.data.scripts[script.name] = script.command;

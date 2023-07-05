@@ -90,13 +90,13 @@ export function classOf<T>(o: T): any {
     return (o as any).constructor;
 }
 
-export function matches(str: string | string[], patterns: string | string[]): boolean {
+export function matches(str: string | string[], patterns: string | string[], options = {}): boolean {
     if (!Array.isArray(str)) {
         str = [str];
     }
 
     for (const s of str) {
-        if (micromatch.isMatch(s, patterns)) {
+        if (micromatch.isMatch(s, patterns, options)) {
             return true;
         }
     }

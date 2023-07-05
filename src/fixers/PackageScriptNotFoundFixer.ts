@@ -16,7 +16,9 @@ export class PackageScriptNotFoundFixer extends Fixer {
 
         const script = this.issue.skeleton.composer.script(this.issue.name);
 
-        this.issue.repository.composer.addScript(script)
+        this.issue.repository.composer
+            .removeScript(script.name)
+            .addScript(script)
             .save();
 
         this.issue.resolve(this)

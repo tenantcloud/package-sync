@@ -65,8 +65,11 @@ config:
     - CHANGELOG.md
     - art/**/*
     - (art)
+    - bootstrap.php
     - build/**/*
     - (build)
+    - cli/**/*
+    - (cli)
     - composer.json
     - composer.lock
     - config/**/*
@@ -86,8 +89,11 @@ config:
     - (src)
     - stubs/*
     - (stubs)
+    - testbench.yml
     - tests/**/*
     - (tests)
+    - tmp/**/*
+    - (tmp)
     - vendor/*
     - (vendor)
     - '*.sh'

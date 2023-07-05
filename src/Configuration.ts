@@ -158,8 +158,8 @@ export class Configuration {
 
     public shouldIgnoreFile(fn: string): boolean {
         return (
-            micromatch.isMatch(fn, config.conf.ignoreNames) ||
-            micromatch.isMatch(fn.replace(process.cwd() + sep, ''), config.conf.ignoreNames)
+            micromatch.isMatch(fn, config.conf.ignoreNames, { dot: true }) ||
+            micromatch.isMatch(fn.replace(process.cwd() + sep, ''), config.conf.ignoreNames, { dot: true })
         );
     }
 

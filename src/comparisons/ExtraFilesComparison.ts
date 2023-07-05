@@ -15,7 +15,7 @@ export class ExtraFilesComparison extends Comparison {
         this.score = 0;
 
         this.extraFiles = this.repo.files
-            .filter(file => !matches(file.relativeName, config.conf.ignoreNames))
+            .filter(file => !matches(file.relativeName, config.conf.ignoreNames, { dot: true }))
             .filter(file => !config.conf.ignoreNames.includes(file.relativeName))
             .filter(file => !file.shouldIgnore)
             .filter(file => !this.skeleton.hasFile(file));
